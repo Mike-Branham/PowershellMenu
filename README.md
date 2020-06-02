@@ -7,7 +7,7 @@ I'm a programmer with many years of experience, but a bit of novice with Powersh
 
 Additionaly I wanted to have some help about the highlighted item show up on the screen, so I dedicated a help area that is defined as a starting column, starting row, width, and max rows.  Max rows is only used for clearing the area, so currently the help text could overflow and not be erased.  This was not a concern for me, but feel free to add the check in the Write-Help function.
 
-#Features:
+# Features:
   - Cursor Up / Down to select
   - Optionally add a character to the menu item for selection
   - Optionally add help text that word-wrap displays in a defined help area on the screen
