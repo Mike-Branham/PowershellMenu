@@ -1,3 +1,73 @@
+<#PSScriptInfo
+
+.VERSION 1.4
+
+.GUID a3b94cd8-a59b-11ea-bb37-0242ac130002
+
+.AUTHOR Mike Branham
+
+.COMPANYNAME 
+
+.COPYRIGHT (c) 2020 Mike Branham.  All rights reserved.
+
+.TAGS CLI menu
+
+.LICENSEURI https://www.gnu.org/licenses/gpl-3.0.en.html
+
+.PROJECTURI 
+
+.ICONURI 
+
+.EXTERNALMODULEDEPENDENCIES 
+
+.REQUIREDSCRIPTS 
+
+.EXTERNALSCRIPTDEPENDENCIES 
+
+.RELEASENOTES
+06/03/2020 Initial release.
+
+#> 
+
+
+
+<#
+.SYNOPSIS
+    Copyright (c) 2020 Mike Branham.
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Powershell menu that allows up / down arrows as well as an optional
+    key press to select a menu item.
+
+    Provision for help text on the highlighted item to display in a defined help area.
+
+.DESCRIPTION
+    Powershell menu that allows up / down arrows as well as an optional
+    key press to select a menu item.
+
+    Features:
+        Cursor Up / Down to select
+        Optionally add a character to the menu item for selection
+        Optionally add help text that word-wrap displays in a defined help area on the screen
+        Separate color settings for title, headers, menu items, and selected menu items
+        Tests console width and height to make sure menu and optional help will fit
+
+.NOTES
+    Copyright (c) 2020 Mike Branham.  All rights reserved.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+#>
+
 # Constants for the help text area
 # If helpenabled is set to $False, then the help area is never cleared or rendered
 New-Variable -Name 'HElPSTARTROW' -Value 1 -Option Constant
