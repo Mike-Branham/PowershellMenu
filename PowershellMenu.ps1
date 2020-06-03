@@ -1,35 +1,21 @@
+
 <#PSScriptInfo
-
-.VERSION 1.4
-
-.GUID a3b94cd8-a59b-11ea-bb37-0242ac130002
-
-.AUTHOR Mike Branham
-
-.COMPANYNAME 
-
-.COPYRIGHT (c) 2020 Mike Branham.  All rights reserved.
-
-.TAGS CLI menu
-
-.LICENSEURI https://www.gnu.org/licenses/gpl-3.0.en.html
-
-.PROJECTURI 
-
+.NAME PowershellMenu.ps1
+.VERSION 1.4.0
+.GUID 3cded6d4-7b7c-4bc8-a616-36d716bc58ac
+.AUTHOR mikeb
+.COMPANYNAME None
+.COPYRIGHT (c) 2020 Mike Branham.
+.TAGS 
+.LICENSE https://www.gnu.org/licenses/gpl-3.0.en.html
+.PROJECTURI https://github.com/Mike-Branham/PowershellMenu
 .ICONURI 
-
 .EXTERNALMODULEDEPENDENCIES 
-
 .REQUIREDSCRIPTS 
-
 .EXTERNALSCRIPTDEPENDENCIES 
-
 .RELEASENOTES
-06/03/2020 Initial release.
-
-#> 
-
-
+    06/03/2020 Initial release
+#>
 
 <#
 .SYNOPSIS
