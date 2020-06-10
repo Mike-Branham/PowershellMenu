@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 .NAME PowershellMenu.ps1
-.VERSION 1.4.0
+.VERSION 1.5.0
 .GUID 3cded6d4-7b7c-4bc8-a616-36d716bc58ac
 .AUTHOR mikeb
 .COMPANYNAME None
@@ -15,6 +15,7 @@
 .EXTERNALSCRIPTDEPENDENCIES 
 .RELEASENOTES
     06/03/2020 Initial release
+    06/10/2020 Fixed issue with word wrap exceeding bounds in printing help text
 #>
 
 <#
@@ -159,8 +160,7 @@ Function Write-Help( $text)
     if(-Not $HELPENABLED) {return}
 
     # Split text on white space
-    $words = $text -split "\s+"
-    $col = 0                    # Start at area's column 0
+    $words = $text -split " "
     $line = ""                  # Initial text is blank
     $curRow = $HELPSTARTROW     # Set starting row
 
@@ -174,25 +174,25 @@ Function Write-Help( $text)
     # Write out the help text
     foreach ( $word in $words )
     {
-        $col += $word.Length + 2    # padding for words that start one char before the width
-        # Check for wrap length, or last word in string
-        if ( $col -ge $HELPWIDTH -Or $word -eq $words[-1])
-        {
-            # If last word, make sure to add it into the line
-            if($word -eq $words[-1]) { $line += "$word "}
-
-            # Set the cursor and write the text
-            #$curPos = $Host.UI.RawUI.CursorPosition 
+        # See if adding the word makes the line longer than the width
+        $checkLine = $line + " " + $word
+        if($checkLine.Length -gt $HELPWIDTH) {
+            # We are at the end of the width, so output the line
             $Host.UI.RawUI.CursorPosition = New-Object System.Management.Automation.Host.Coordinates $HELPSTARTCOL, $curRow
             Write-Host -NoNewLine "$line" -ForegroundColor $HELPCOLOR
-    
-            # Move to the next line, and start the next line text with any spill from the line printed
+
+            # Move to the next line and start the next line text with the word that didn't fit this line.
             $curRow++
-            $col = 0
             $line = "$word "
         } else {
-            # Add the word to the current line with a space.
+            # Simply add the word to the line with a space
             $line += "$word "
+        }
+
+        # output last line if needed
+        if($line.Length) {
+            $Host.UI.RawUI.CursorPosition = New-Object System.Management.Automation.Host.Coordinates $HELPSTARTCOL, $curRow
+            Write-Host -NoNewLine "$line" -ForegroundColor $HELPCOLOR
         }
     }
 }
